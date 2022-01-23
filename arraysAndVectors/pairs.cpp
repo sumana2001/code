@@ -54,10 +54,12 @@ void solve2(vector<int> v, int target)
 void solve3(vector<int> v, int target)
 {
     unordered_set<int> s;
-    for(int i=0;i<v.size();i++){
-        int x=target-v[i];
-        if(s.find(x)!=s.end()){
-            cout<<v[i]<<","<<x<<endl;
+    for (int i = 0; i < v.size(); i++)
+    {
+        int x = target - v[i];
+        if (s.find(x) != s.end())
+        {
+            cout << v[i] << "," << x << endl;
             return;
         }
         s.insert(v[i]);
