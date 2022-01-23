@@ -1,3 +1,9 @@
+/*
+Given an array and target sum, find all triplets of distinct integers that can 
+form the target sum. The numbers in each triplet should be ordered and all triplets
+should also be ordered.
+*/
+
 #include <iostream>
 #include <vector>
 #include <algorithm>

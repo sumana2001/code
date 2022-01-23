@@ -1,3 +1,8 @@
+/*
+Given an array and target sum, find two distinct integers that can 
+pair up to form the target sum. Assume there will be only one such pair
+*/
+
 #include <iostream>
 #include <vector>
 #include <algorithm>
