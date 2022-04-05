@@ -9,6 +9,7 @@ using namespace std;
 
 int print(int idx, int arr[], int n, int k, int s)
 {
+    if(s>k) return 0;
     if (idx >= n)
     {
         if (k == s)
