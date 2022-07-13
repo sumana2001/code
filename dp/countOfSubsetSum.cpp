@@ -7,26 +7,21 @@
 #include <algorithm>
 using namespace std;
 
-bool subsetSum(vector<int> arr, int n, int sum)
+int count(vector<int> arr, int n, int sum)
 {
-    vector<vector<bool>> dp(n + 1, vector<bool>(sum + 1, false));
+    vector<vector<int>> dp(n + 1, vector<int>(sum + 1, 0));
     for (int i = 0; i < n + 1; i++)
     {
-        for (int j = 0; j < sum + 1; j++)
-        {
-            if (j == 0)
-            {
-                dp[i][j] = true;
-            }
-        }
+        dp[i][0] = 1;
     }
     for (int i = 1; i < n + 1; i++)
     {
         for (int j = 1; j < sum + 1; j++)
         {
+
             if (arr[i - 1] <= j)
             {
-                dp[i][j] = dp[i - 1][j - arr[i - 1]] || dp[i - 1][j];
+                dp[i][j] = dp[i - 1][j] + dp[i - 1][j - arr[i - 1]];
             }
             else
             {
@@ -39,9 +34,9 @@ bool subsetSum(vector<int> arr, int n, int sum)
 
 int main()
 {
-    int n = 5;
-    vector<int> arr{2, 3, 7, 8, 10};
-    int sum = 11;
-    cout << subsetSum(arr, n, sum);
+    vector<int> arr{2, 3, 5, 6, 10};
+    int n = arr.size();
+    int sum = 10;
+    cout << count(arr, 5, sum);
     return 0;
 }

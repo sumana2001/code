@@ -47,7 +47,7 @@ int knapsackMemoize(vector<int> val, vector<int> wt, int w, int n)
 
 int knapsackTopdown(vector<int> val, vector<int> wt, int w, int n)
 {
-    vector<vector<int>> dp(n+1, vector<int>(w+1, 0));
+    vector<vector<int>> dp(n + 1, vector<int>(w + 1, 0));
     for (int i = 1; i < n + 1; i++)
     {
         for (int j = 1; j < w + 1; j++)
