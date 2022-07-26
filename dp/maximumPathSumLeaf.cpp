@@ -17,14 +17,16 @@ struct Node {
     }
 };
 
-int diameter(Node *root, int &res){
+int maxPathSum(Node *root, int &res){
     if(root==NULL)
         return 0;
-    int l=diameter(root->left,res);
-    int r=diameter(root->right,res);
-    int temp=max(l,r)+1;
-    int ans=max(temp,1+l+r);
-    res=max(res,ans);
+    int l=maxPathSum(root->left,res);
+    int r=maxPathSum(root->right,res);
+    int temp=max(l,r)+root->data;
+    if(root->left==NULL && root->right==NULL)
+        temp=max(temp,root->data);
+    int ans=max(temp,l+r+root->data);
+    res=max(ans,res);
     return temp;
 }
 
@@ -35,7 +37,7 @@ int main(){
     root->left->left = new Node(4);
     root->left->right = new Node(5);
     int res=INT_MIN;
-    int x=diameter(root,res);
+    int x=maxPathSum(root,res);
     cout<<res;
     return 0;
 }
